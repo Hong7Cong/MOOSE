@@ -1,0 +1,56 @@
+TRAIN:
+  ENABLE: True
+  DATASET: ssv2
+  BATCH_SIZE: 1
+  EVAL_PERIOD: 1
+  CHECKPOINT_PERIOD: 1
+  AUTO_RESUME: False
+  FINETUNE: False
+  # CHECKPOINT_FILE_PATH: /data2/hongn/TimePSFormer/checkpoints_ssv2/moose_viattention_dinov2_8frame_maskarrow_timecausal/checkpoints/checkpoint_epoch_00001.pyth
+MODEL:
+  MODEL_NAME: MOOSE
+  NUM_CLASSES: 174
+  ARCH: vit
+  LOSS_FUNC: cross_entropy
+  DROPOUT_RATE: 0.5
+  FUSION_MODE: viattention
+  VISUAL_MODEL: dinov2
+  TIME_AGGREGATION: causal
+  ST_MASKING: arrow
+DATA:
+  PATH_TO_DATA_DIR: "/mnt/d/SSv2/labels"
+  PATH_PREFIX: "/mnt/d/SSv2/frames"
+  NUM_FRAMES: 9
+  SAMPLING_RATE: 8
+  TRAIN_JITTER_SCALES: [256, 320]
+  TRAIN_CROP_SIZE: 224
+  TEST_CROP_SIZE: 224
+  INPUT_CHANNEL_NUM: [3]
+  # INV_UNIFORM_SAMPLE: True
+  # RANDOM_FLIP: False
+  # REVERSE_INPUT_CHANNEL: True
+# TIMESFORMER:
+#   ATTENTION_TYPE: 'divided_space_time'
+SOLVER:
+  BASE_LR: 0.005
+  LR_POLICY: steps_with_relative_lrs
+  STEPS: [0, 11, 14]
+  LRS: [1, 0.1, 0.01]
+  MAX_EPOCH: 20
+  MOMENTUM: 0.9
+  WEIGHT_DECAY: 1e-4
+  OPTIMIZING_METHOD: sgd
+OUTPUT_DIR: ./checkpoints_ssv2/moose_viattention_dinov2_8frame_maskarrow_timecausal/
+TEST:
+  ENABLE: False
+  DATASET: ssv2
+  BATCH_SIZE: 2
+  NUM_ENSEMBLE_VIEWS: 1
+  NUM_SPATIAL_CROPS: 3
+DATA_LOADER:
+  NUM_WORKERS: 4
+  PIN_MEMORY: True
+NUM_GPUS: 1
+NUM_SHARDS: 1
+RNG_SEED: 0
+
