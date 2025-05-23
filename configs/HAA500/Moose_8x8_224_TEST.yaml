@@ -6,7 +6,7 @@ TRAIN:
   CHECKPOINT_PERIOD: 1
   AUTO_RESUME: True
   TPU_ENABLE: False
-OUTPUT_DIR: ./checkpoints_haa500/moose_biconcat_biconcat_8frame/
+# OUTPUT_DIR: ./checkpoints_haa500/moose_biconcat_biconcat_8frame/
 MODEL:
   MODEL_NAME: MOOSE
   NUM_CLASSES: 500
@@ -15,8 +15,9 @@ MODEL:
   DROPOUT_RATE: 0.5
   FUSION_MODE: biconcat
   VISUAL_MODEL: dinov2
+  TIME_AGGREGATION: causal
 DATA:
-  PATH_TO_DATA_DIR: /data1/hongn/haa500/
+  PATH_TO_DATA_DIR: /mnt/d/haa500/
   NUM_FRAMES: 9
   SAMPLING_RATE: 8
   TRAIN_JITTER_SCALES: [256, 320]
@@ -24,8 +25,8 @@ DATA:
   TEST_CROP_SIZE: 224
   INPUT_CHANNEL_NUM: [3]
   PATH_LABEL_SEPARATOR: ","
-TIMESFORMER:
-  ATTENTION_TYPE: 'divided_space_time'
+# TIMESFORMER:
+#   ATTENTION_TYPE: 'divided_space_time'
 SOLVER:
   BASE_LR: 0.005
   LR_POLICY: steps_with_relative_lrs
@@ -38,10 +39,10 @@ SOLVER:
 TEST:
   ENABLE: True
   DATASET: kinetics
-  BATCH_SIZE: 1
-  NUM_ENSEMBLE_VIEWS: 1
-  NUM_SPATIAL_CROPS: 3
-  CHECKPOINT_FILE_PATH: /data2/hongn/TimePSFormer/checkpoints_haa500/moose_biconcat_biconcat_8frame_tune/checkpoints/checkpoint_epoch_00040.pyth
+  BATCH_SIZE: 8
+  NUM_ENSEMBLE_VIEWS: 10
+  NUM_SPATIAL_CROPS: 1
+  CHECKPOINT_FILE_PATH: /mnt/d/Github/TimePSFormer/checkpoints_haa500/moose_biconcat_dinov2_8frame_maskarrow_timecausal/checkpoints/checkpoint_epoch_00014.pyth
 DATA_LOADER:
   NUM_WORKERS: 4
   PIN_MEMORY: True

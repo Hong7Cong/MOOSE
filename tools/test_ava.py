@@ -8,16 +8,16 @@ import pickle
 
 import numpy as np
 
-import timesformer.utils.checkpoint as cu
-import timesformer.utils.distributed as du
-import timesformer.utils.logging as logging
-import timesformer.utils.misc as misc
-import timesformer.visualization.tensorboard_vis as tb
+import moose.utils.checkpoint as cu
+import moose.utils.distributed as du
+import moose.utils.logging as logging
+import moose.utils.misc as misc
+import moose.visualization.tensorboard_vis as tb
 import torch
-from timesformer.datasets import loader
-from timesformer.models import build_model
+from moose.datasets import loader
+from moose.models import build_model
 # from timesformer.utils.env import pathmgr
-from timesformer.utils.meters import AVAMeter, TestMeter
+from moose.utils.meters import AVAMeter, TestMeter
 
 logger = logging.get_logger(__name__)
 

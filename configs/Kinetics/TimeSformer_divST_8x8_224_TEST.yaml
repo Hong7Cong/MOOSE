@@ -1,12 +1,17 @@
 TRAIN:
   ENABLE: False
   DATASET: kinetics
-  BATCH_SIZE: 8
-  EVAL_PERIOD: 5
-  CHECKPOINT_PERIOD: 5
+  BATCH_SIZE: 16
+  EVAL_PERIOD: 1
+  CHECKPOINT_PERIOD: 1
   AUTO_RESUME: True
+  TPU_ENABLE: False
+  FINETUNE: True
+  # CHECKPOINT_FILE_PATH: /mnt/d/Github/TimePSFormer/checkpoints/moose_viattention_dinov2_8frame_maskarrow_timecausal/checkpoint_epoch_00008.pyth
+  CHECKPOINT_FILE_PATH: /mnt/d/Github/TimePSFormer/checkpoints/timesformer/TimeSformer_divST_8x32_224_K400.pyth
+OUTPUT_DIR: ./checkpoints_haa500/timesformer/
 DATA:
-  PATH_TO_DATA_DIR: /data1/hongn/kinetics-dataset/k400
+  PATH_TO_DATA_DIR: /mnt/d/haa500/
   NUM_FRAMES: 8
   SAMPLING_RATE: 8
   TRAIN_JITTER_SCALES: [256, 320]
@@ -26,12 +31,12 @@ SOLVER:
   OPTIMIZING_METHOD: sgd
 MODEL:
   MODEL_NAME: vit_base_patch16_224
-  NUM_CLASSES: 400
+  NUM_CLASSES: 500
   ARCH: vit
   LOSS_FUNC: cross_entropy
   DROPOUT_RATE: 0.5
 TEST:
-  ENABLE: True
+  ENABLE: False
   DATASET: kinetics
   BATCH_SIZE: 1
   NUM_ENSEMBLE_VIEWS: 1
@@ -43,4 +48,3 @@ DATA_LOADER:
 NUM_GPUS: 1
 NUM_SHARDS: 1
 RNG_SEED: 0
-OUTPUT_DIR: .

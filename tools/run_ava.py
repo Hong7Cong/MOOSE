@@ -4,8 +4,8 @@
 """Wrapper to train and test a video classification model."""
 
 # from timesformer.config.defaults import assert_and_infer_cfg
-from timesformer.utils.misc import launch_job
-from timesformer.utils.parser import load_config, parse_args
+from moose.utils.misc import launch_job
+from moose.utils.parser import load_config, parse_args
 # from vision.fair.slowfast.tools.demo_net import demo
 from tools.test_ava import test
 from tools.train_ava import train

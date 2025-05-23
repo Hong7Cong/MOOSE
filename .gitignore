@@ -142,9 +142,16 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
+*.deb
 *.mp4
+*.csv
+*.ipynb
+*.sh
+*.png
 checkpoints/
 checkpoints_haa500/
 checkpoints_ssv2/
+checkpoints_ucf/
+checkpoints_rtmri/
 causal-conv1d/
 mamba/

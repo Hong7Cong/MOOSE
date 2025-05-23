@@ -3,10 +3,10 @@
 A script to benchmark data loading.
 """
 
-import timesformer.utils.logging as logging
-from timesformer.utils.benchmark import benchmark_data_loading
-from timesformer.utils.misc import launch_job
-from timesformer.utils.parser import load_config, parse_args
+import moose.utils.logging as logging
+from moose.utils.benchmark import benchmark_data_loading
+from moose.utils.misc import launch_job
+from moose.utils.parser import load_config, parse_args
 
 logger = logging.get_logger(__name__)
 

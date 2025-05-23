@@ -7,18 +7,18 @@ import pprint
 import torch
 from fvcore.nn.precise_bn import get_bn_modules, update_bn_stats
 
-import timesformer.models.losses as losses
-import timesformer.models.optimizer as optim
-import timesformer.utils.checkpoint as cu
-import timesformer.utils.distributed as du
-import timesformer.utils.logging as logging
-import timesformer.utils.metrics as metrics
-import timesformer.utils.misc as misc
-import timesformer.visualization.tensorboard_vis as tb
-from timesformer.datasets import loader
-from timesformer.models import build_model
-from timesformer.utils.meters import TrainMeter, ValMeter
-from timesformer.utils.multigrid import MultigridSchedule
+import moose.models.losses as losses
+import moose.models.optimizer as optim
+import moose.utils.checkpoint as cu
+import moose.utils.distributed as du
+import moose.utils.logging as logging
+import moose.utils.metrics as metrics
+import moose.utils.misc as misc
+import moose.visualization.tensorboard_vis as tb
+from moose.datasets import loader
+from moose.models import build_model
+from moose.utils.meters import TrainMeter, ValMeter
+from moose.utils.multigrid import MultigridSchedule
 
 from timm.data import Mixup
 from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy

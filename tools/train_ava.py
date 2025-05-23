@@ -8,25 +8,25 @@ import pprint
 
 import numpy as np
 
-import timesformer.models.losses as losses
-import timesformer.models.optimizer as optim
-import timesformer.utils.checkpoint as cu
-import timesformer.utils.distributed as du
-import timesformer.utils.logging as logging
-import timesformer.utils.metrics as metrics
-import timesformer.utils.misc as misc
-import timesformer.visualization.tensorboard_vis as tb
+import moose.models.losses as losses
+import moose.models.optimizer as optim
+import moose.utils.checkpoint as cu
+import moose.utils.distributed as du
+import moose.utils.logging as logging
+import moose.utils.metrics as metrics
+import moose.utils.misc as misc
+import moose.visualization.tensorboard_vis as tb
 import torch
 from fvcore.nn.precise_bn import get_bn_modules, update_bn_stats
-from timesformer.datasets import loader
-from timesformer.datasets.mixup import MixUp
-from timesformer.models import build_model
+from moose.datasets import loader
+from moose.datasets.mixup import MixUp
+from moose.models import build_model
 # from timesformer.models.contrastive import (
 #     contrastive_forward,
 #     contrastive_parameter_surgery,
 # )
-from timesformer.utils.meters import AVAMeter, EpochTimer, TrainMeter, ValMeter
-from timesformer.utils.multigrid import MultigridSchedule
+from moose.utils.meters import AVAMeter, EpochTimer, TrainMeter, ValMeter
+from moose.utils.multigrid import MultigridSchedule
 
 logger = logging.get_logger(__name__)
 

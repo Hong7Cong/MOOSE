@@ -11,14 +11,14 @@ import cv2
 from einops import rearrange, reduce, repeat
 import scipy.io
 
-import timesformer.utils.checkpoint as cu
-import timesformer.utils.distributed as du
-import timesformer.utils.logging as logging
-import timesformer.utils.misc as misc
-import timesformer.visualization.tensorboard_vis as tb
-from timesformer.datasets import loader
-from timesformer.models import build_model
-from timesformer.utils.meters import TestMeter
+import moose.utils.checkpoint as cu
+import moose.utils.distributed as du
+import moose.utils.logging as logging
+import moose.utils.misc as misc
+import moose.visualization.tensorboard_vis as tb
+from moose.datasets import loader
+from moose.models import build_model
+from moose.utils.meters import TestMeter
 
 logger = logging.get_logger(__name__)
 

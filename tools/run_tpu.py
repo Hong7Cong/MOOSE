@@ -1,13 +1,13 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 
 """Wrapper to train and test a video classification model."""
-from timesformer.utils.misc import launch_job
-from timesformer.utils.parser import load_config, parse_args
+from moose.utils.misc import launch_job
+from moose.utils.parser import load_config, parse_args
 # import torch.distributed as dist
 from tools.test_net import test
 from tools.train_net import train, _mp_fn
 import torch_xla as xla
-import timesformer.utils.logging as logging
+import moose.utils.logging as logging
 logger = logging.get_logger(__name__)
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 import numpy as np
@@ -15,18 +15,18 @@ import pprint
 import torch
 from fvcore.nn.precise_bn import get_bn_modules, update_bn_stats
 import torch.distributed as dist
-import timesformer.models.losses as losses
-import timesformer.models.optimizer as optim
-import timesformer.utils.checkpoint as cu
-import timesformer.utils.distributed as du
-import timesformer.utils.logging as logging
-import timesformer.utils.metrics as metrics
-import timesformer.utils.misc as misc
-import timesformer.visualization.tensorboard_vis as tb
-from timesformer.datasets import loader
-from timesformer.models import build_model
-from timesformer.utils.meters import TrainMeter, ValMeter
-from timesformer.utils.multigrid import MultigridSchedule
+import moose.models.losses as losses
+import moose.models.optimizer as optim
+import moose.utils.checkpoint as cu
+import moose.utils.distributed as du
+import moose.utils.logging as logging
+import moose.utils.metrics as metrics
+import moose.utils.misc as misc
+import moose.visualization.tensorboard_vis as tb
+from moose.datasets import loader
+from moose.models import build_model
+from moose.utils.meters import TrainMeter, ValMeter
+from moose.utils.multigrid import MultigridSchedule
 # from fvcore.common.registry import Registry
 # import torch_xla.core.xla_model as xm
 from torch.utils.data.distributed import DistributedSampler
@@ -38,7 +38,7 @@ from timm.loss import LabelSmoothingCrossEntropy, SoftTargetCrossEntropy
 import torch_xla as xla
 import torch_xla.core.xla_model as xm
 from torch_xla import runtime as xr
-from timesformer.datasets.build import build_dataset
+from moose.datasets.build import build_dataset
 # device = xm.xla_device()
 # logger = logging.get_logger(__name__)
 import torch_xla.debug.metrics as met

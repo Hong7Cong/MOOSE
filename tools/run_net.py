@@ -1,13 +1,13 @@
 # Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved.
 
 """Wrapper to train and test a video classification model."""
-from timesformer.utils.misc import launch_job
-from timesformer.utils.parser import load_config, parse_args
+from moose.utils.misc import launch_job
+from moose.utils.parser import load_config, parse_args
 # import torch.distributed as dist
-from tools.test_net import test
-from tools.train_net import train #,_mp_fn
+from test_net import test
+from train_net import train #,_mp_fn
 # import torch_xla as xla
-import timesformer.utils.logging as logging
+import moose.utils.logging as logging
 logger = logging.get_logger(__name__)
 
 def get_func(cfg):
